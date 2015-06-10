@@ -7,6 +7,7 @@ Finds common antipatterns in Gherkin and suggests solutions
 * No rules section in description
 * Emotional (Given I want...)
 * More than one When
+* Background with When or Then
 * UI speak (click, enter)
 * Scenario Outline with UI
 * Using "or" in steps
