@@ -6,9 +6,9 @@ Feature: Rule: Description
       Feature: Hello
         Scenario: hi
       """
-    When it's linted
+    When it's linted with "feature_description"
     Then the warnings should be:
       """
-      Missing description.
+      Missing feature description.
       features/no_description.feature:2
       """

@@ -1,5 +1,12 @@
 # gherkin-lint
-Finds common antipatterns in Gherkin and suggests solutions
+
+Most people put too much in their Gherkin.
+Verbose gherkin makes for bad documentation.
+
+> Perfection is Achieved Not When There Is Nothing More to Add, But When There Is Nothing Left to Take Away.
+--Antoine de Saint-Exupéry
+
+Gherin-Lint finds common antipatterns in Gherkin and suggests solutions.
 
 ## Rules
 
@@ -12,11 +19,14 @@ Finds common antipatterns in Gherkin and suggests solutions
 * Scenario Outline with UI
 * Using "or" in steps
 * Long scenarios (more than 5 steps)
+* Sentences are too long
+* Too many scenarios in a Feature file
 * Could use And (Given, Given)
 * Large DataTable (incidental detail)
 * Large Examples table (incidental detail)
 * Many arguments (many "xxx" pairs or numbers)
 * Many comments
+
 
 ## Implementation
 
