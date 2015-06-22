@@ -1,4 +1,4 @@
-require 'gherkin-lint/lint/api'
+require 'gherkin/lint/api'
 
 Before do
   @api = Gherkin::Lint::Api.new

@@ -1,4 +1,6 @@
-require 'gherkin'
+require 'gherkin3/parser'
+require 'gherkin3/token_scanner'
+require_relative 'rules'
 
 module Gherkin
   module Lint
@@ -7,19 +9,21 @@ module Gherkin
         Feature.new(path)
       end
 
-      def lint(feature)
-        ["Missing description.\nfeatures/no_description.feature:2"]
-      end
-
       class Feature
         def initialize(path)
           @path = path
         end
 
         def with(gherkin)
-          parser = Gherkin::Parser.new
-          feature = parser.parse(gherkin)
-          p feature
+          parser  = Gherkin3::Parser.new
+          scanner = Gherkin3::TokenScanner.new(gherkin)
+          @feature = parser.parse(scanner)
+          self
+        end
+
+        def lint(rule_name, warnings)
+          rule = Rules.load(rule_name)
+          rule.lint(@feature, @path, warnings)
         end
       end
     end

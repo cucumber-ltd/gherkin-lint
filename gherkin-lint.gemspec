@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'gherkin-lint/lint/version'
+require 'gherkin/lint/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "gherkin-lint"
-  spec.version       = GherkinLint::Lint::VERSION
+  spec.version       = Gherkin::Lint::VERSION
   spec.authors       = ["Aslak Hellesøy"]
   spec.email         = ["aslak.hellesoy@gmail.com"]
 
@@ -32,4 +32,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.9"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "cucumber", "~> 2.0"
+  spec.add_development_dependency "aruba", "~> 0.6"
 end
