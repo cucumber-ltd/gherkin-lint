@@ -16,6 +16,10 @@ When(/^it's linted with "(.*)"$/) do |rule_name|
   @feature.lint(rule_name, @warnings)
 end
 
-Then(/^the warnings should be:$/) do |expected_warning|
+Then(/^the warning should be:$/) do |expected_warning|
   expect(@warnings[0]).to eq(expected_warning)
+end
+
+Then(/^there shouldn't be any warnings$/) do
+  expect(@warnings).to eq([])
 end
