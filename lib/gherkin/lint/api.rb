@@ -21,8 +21,7 @@ module Gherkin
           self
         end
 
-        def lint(rule_name, warnings)
-          rule = Rules.load(rule_name)
+        def lint(rule, warnings)
           rule.lint(@feature, @path, warnings)
         end
       end

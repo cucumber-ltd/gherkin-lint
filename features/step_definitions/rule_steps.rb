@@ -1,4 +1,5 @@
 require 'gherkin/lint/api'
+require 'gherkin/lint/rules'
 
 Before do
   @api = Gherkin::Lint::Api.new
@@ -13,7 +14,8 @@ end
 
 When(/^it's linted with "(.*)"$/) do |rule_name|
   @warnings = []
-  @feature.lint(rule_name, @warnings)
+  rule = Gherkin::Lint::Rules.load(rule_name)
+  @feature.lint(rule, @warnings)
 end
 
 Then(/^the warning should be:$/) do |expected_warning|
