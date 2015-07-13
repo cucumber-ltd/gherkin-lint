@@ -1,3 +1,4 @@
+require 'json'
 require_relative 'api'
 require_relative 'rules'
 
@@ -19,7 +20,7 @@ module Gherkin
           feature.lint(rule, warnings)
         end
 
-        @stdout.puts warnings
+        @stdout.puts JSON.pretty_generate(warnings)
 
         exitstatus = warnings.any? ? 1 : 0
         @kernel.exit(exitstatus)

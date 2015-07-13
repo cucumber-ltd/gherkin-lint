@@ -12,6 +12,12 @@ Feature: Rule: Multiple When
     When it's linted with "multiple_when"
     Then the warning should be:
       """
-      Multiple When steps.
-      features/some.feature:5
+      {
+        "path": "features/some.feature",
+        "location": {
+          "line": 5
+        },
+        "rule": "multiple_when",
+        "description": "Multiple When steps"
+      }
       """

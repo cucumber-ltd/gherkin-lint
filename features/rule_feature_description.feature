@@ -9,8 +9,14 @@ Feature: Rule: Feature Description
     When it's linted with "feature_description"
     Then the warning should be:
       """
-      Missing feature description.
-      features/no_feature_description.feature:2
+      {
+        "path": "features/no_feature_description.feature",
+        "location": {
+          "line": 2
+        },
+        "rule": "feature_description",
+        "description": "Missing feature description"
+      }
       """
 
   Scenario: Description exists

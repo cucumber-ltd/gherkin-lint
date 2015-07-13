@@ -3,7 +3,12 @@ module Gherkin::Lint::Rules
     def lint(ast, path, warnings)
       if ast[:description].nil?
         line = ast[:location][:line] + 1
-        warnings.push << "Missing feature description.\n#{path}:#{line}"
+        warnings.push << {
+          path: path,
+          location: {line: line},
+          rule: 'feature_description',
+          description: "Missing feature description"
+        }
       end
     end
   end

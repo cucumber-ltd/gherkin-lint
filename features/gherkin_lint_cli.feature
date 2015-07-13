@@ -12,9 +12,23 @@ Feature: gherkin-lint command line interface
     And I run `cucumber-lint features/bad.feature`
     Then the output should contain exactly:
       """
-      Missing feature description.
-      features/bad.feature:2
-      Multiple When steps.
-      features/bad.feature:5
+      [
+        {
+          "path": "features/bad.feature",
+          "location": {
+            "line": 2
+          },
+          "rule": "feature_description",
+          "description": "Missing feature description"
+        },
+        {
+          "path": "features/bad.feature",
+          "location": {
+            "line": 5
+          },
+          "rule": "multiple_when",
+          "description": "Multiple When steps"
+        }
+      ]
 
       """

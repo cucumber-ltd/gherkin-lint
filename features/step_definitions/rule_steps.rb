@@ -19,7 +19,8 @@ When(/^it's linted with "(.*)"$/) do |rule_name|
 end
 
 Then(/^the warning should be:$/) do |expected_warning|
-  expect(@warnings[0]).to eq(expected_warning)
+  expect(@warnings.length).to eq(1)
+  expect(JSON.pretty_generate(@warnings[0])).to eq(expected_warning)
 end
 
 Then(/^there shouldn't be any warnings$/) do

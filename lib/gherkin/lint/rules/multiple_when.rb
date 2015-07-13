@@ -12,7 +12,12 @@ module Gherkin::Lint::Rules
 
             if another_when
               line = step[:location][:line]
-              warnings.push << "Multiple #{last_step[:keyword]}steps.\n#{path}:#{line}"
+              warnings.push << {
+                path: path,
+                location: {line: line},
+                rule: 'multiple_when',
+                description: "Multiple When steps"
+              }
             end
           end
           last_step = step
