@@ -7,7 +7,7 @@ Feature: Rule: Multiple When
         Scenario: hi
           Given a
           When b
-          When c
+          And c
       """
     When it's linted with "multiple_when"
     Then the warning should be:

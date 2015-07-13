@@ -13,7 +13,7 @@ Gherin-Lint finds common antipatterns in Gherkin and suggests solutions.
 * [x] Missing description
 * [ ] No rules section in description
 * [ ] Emotional (Given I want...)
-* [ ] More than one When
+* [x] Multiple When steps
 * [ ] Background with When or Then
 * [ ] UI speak (click, enter)
 * [ ] Scenario Outline with UI
