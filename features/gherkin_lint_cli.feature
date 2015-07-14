@@ -19,15 +19,15 @@ Feature: gherkin-lint command line interface
             "line": 2
           },
           "rule": "feature_description",
-          "description": "Missing feature description"
+          "description": "A Feature should have a description"
         },
         {
           "path": "features/bad.feature",
           "location": {
             "line": 5
           },
-          "rule": "multiple_when",
-          "description": "Multiple When steps"
+          "rule": "single_when",
+          "description": "A Scenario should have a single When step"
         }
       ]
 

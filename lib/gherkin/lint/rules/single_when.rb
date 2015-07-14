@@ -1,5 +1,5 @@
 module Gherkin::Lint::Rules
-  class MultipleWhen
+  class SingleWhen
     def lint(ast, path, warnings)
       dialect = Gherkin3::Dialect.for(ast[:language])
       ast[:scenarioDefinitions].each do |sd|
@@ -15,8 +15,8 @@ module Gherkin::Lint::Rules
               warnings.push << {
                 path: path,
                 location: {line: line},
-                rule: 'multiple_when',
-                description: "Multiple When steps"
+                rule: 'single_when',
+                description: "A Scenario should have a single When step"
               }
             end
           end

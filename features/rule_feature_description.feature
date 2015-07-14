@@ -15,7 +15,7 @@ Feature: Rule: Feature Description
           "line": 2
         },
         "rule": "feature_description",
-        "description": "Missing feature description"
+        "description": "A Feature should have a description"
       }
       """
 

@@ -1,4 +1,4 @@
-Feature: Rule: Multiple When
+Feature: Rule: Single When
 
   Scenario: No description
     Given a feature "features/some.feature" with:
@@ -9,7 +9,7 @@ Feature: Rule: Multiple When
           When b
           And c
       """
-    When it's linted with "multiple_when"
+    When it's linted with "single_when"
     Then the warning should be:
       """
       {
@@ -17,7 +17,7 @@ Feature: Rule: Multiple When
         "location": {
           "line": 5
         },
-        "rule": "multiple_when",
-        "description": "Multiple When steps"
+        "rule": "single_when",
+        "description": "A Scenario should have a single When step"
       }
       """

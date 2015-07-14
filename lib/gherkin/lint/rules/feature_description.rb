@@ -7,7 +7,7 @@ module Gherkin::Lint::Rules
           path: path,
           location: {line: line},
           rule: 'feature_description',
-          description: "Missing feature description"
+          description: "A Feature should have a description"
         }
       end
     end
