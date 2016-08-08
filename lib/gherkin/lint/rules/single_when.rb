@@ -1,10 +1,11 @@
 module Gherkin::Lint::Rules
   class SingleWhen
-    def lint(ast, path, warnings)
-      dialect = Gherkin3::Dialect.for(ast[:language])
-      ast[:scenarioDefinitions].each do |sd|
+    def lint(gherkin_document, path, warnings)
+      feature = gherkin_document[:feature]
+      dialect = Gherkin::Dialect.for(feature[:language])
+      feature[:children].each do |step_container|
         last_step = nil
-        sd[:steps].each do |step|
+        step_container[:steps].each do |step|
           if last_step && dialect.when_keywords.index(last_step[:keyword])
             another_when =
               dialect.when_keywords.index(step[:keyword]) ||

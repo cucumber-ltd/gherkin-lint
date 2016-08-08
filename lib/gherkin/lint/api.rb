@@ -1,5 +1,5 @@
-require 'gherkin3/parser'
-require 'gherkin3/token_scanner'
+require 'gherkin/parser'
+require 'gherkin/token_scanner'
 require_relative 'rules'
 
 module Gherkin
@@ -15,8 +15,8 @@ module Gherkin
         end
 
         def with(gherkin)
-          parser  = Gherkin3::Parser.new
-          scanner = Gherkin3::TokenScanner.new(gherkin)
+          parser  = Gherkin::Parser.new
+          scanner = Gherkin::TokenScanner.new(gherkin)
           @feature = parser.parse(scanner)
           self
         end

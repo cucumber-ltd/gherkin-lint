@@ -4,12 +4,13 @@ module Gherkin::Lint::Rules
       'en' => ['click ', 'redirect']
     }
 
-    def lint(ast, path, warnings)
-      language = ast[:language]
+    def lint(gherkin_document, path, warnings)
+      feature = gherkin_document[:feature]
+      language = feature[:language]
       ui_terms = UI_TERMS[language]
 
-      ast[:scenarioDefinitions].each do |sd|
-        sd[:steps].each do |step|
+      feature[:children].each do |step_container|
+        step_container[:steps].each do |step|
           ui_terms.each do |ui_term|
             index = step[:text].index(ui_term)
             if(index)
